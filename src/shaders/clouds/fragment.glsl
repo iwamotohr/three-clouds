@@ -16,7 +16,7 @@ void main()
     clouds *= smoothstep(1.0, 0.8, vUv.y);
 
     // Final color
-    gl_FragColor = vec4(1.0, 1.0, 1.0, clouds);
+    gl_FragColor = vec4(1.0, 0.878, 0.768, clouds);
 
     #include <tonemapping_fragment>
     #include <colorspace_fragment>

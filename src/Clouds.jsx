@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import * as THREE from "three";
-// import { shaderMaterial } from "@react-three/drei";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import cloudsVertexShader from "./shaders/clouds/vertex.glsl";
 import cloudsFragmentShader from "./shaders/clouds/fragment.glsl";
 
 export default function Clouds() {
-  const perlinTexture = useTexture("./perlin.png");
+  // const perlinTexture = useTexture("./perlin.png");
+  const perlinTexture = useTexture("./noiseTexture.png");
   perlinTexture.wrapS = THREE.RepeatWrapping;
   perlinTexture.wrapT = THREE.RepeatWrapping;
 
@@ -20,8 +20,8 @@ export default function Clouds() {
     <mesh
       receiveShadow
       rotation-x={-Math.PI * 0.5}
-      position-y={-0.8}
-      scale={16}
+      position-y={-0.9}
+      scale={180}
     >
       <planeGeometry args={[1, 1, 128, 128]} />
       <shaderMaterial
@@ -31,15 +31,14 @@ export default function Clouds() {
         uniforms={{
           uTime: new THREE.Uniform(0),
           uPerlinTexture: new THREE.Uniform(perlinTexture),
-          uBigWavesElevation: new THREE.Uniform(0.05),
-          uBigWavesFrequency: new THREE.Uniform(new THREE.Vector2(0.7, 0.5)),
-          uBigWavesSpeed: new THREE.Uniform(0.2),
-          uSmallWavesSpeed: new THREE.Uniform(0.015),
+          uBigWavesElevation: new THREE.Uniform(0.15),
+          uBigWavesFrequency: new THREE.Uniform(new THREE.Vector2(0.3, 0.1)),
+          uBigWavesSpeed: new THREE.Uniform(0.1),
+          uSmallWavesSpeed: new THREE.Uniform(0.002),
         }}
         side={THREE.DoubleSide}
         transparent={true}
         depthWrite={false}
-        // wireframe={true}
       />
     </mesh>
   );

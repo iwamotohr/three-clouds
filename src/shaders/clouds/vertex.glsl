@@ -24,9 +24,9 @@ void main () {
     // Clouds
     float clouds = texture(uPerlinTexture, cloudsUv).r;
     // Remap
-    clouds = smoothstep(0.05, 0.6, clouds);
+    clouds = smoothstep(0.25, 0.58, clouds);
 
-    modelPosition.y += clouds * 0.6;
+    modelPosition.y += clouds * 0.8;
 
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectedPosition = projectionMatrix * viewPosition;
