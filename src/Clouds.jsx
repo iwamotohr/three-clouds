@@ -20,7 +20,7 @@ export default function Clouds() {
     <mesh
       receiveShadow
       rotation-x={-Math.PI * 0.5}
-      position-y={-0.9}
+      position-y={-1.1}
       scale={180}
     >
       <planeGeometry args={[1, 1, 128, 128]} />
@@ -31,10 +31,10 @@ export default function Clouds() {
         uniforms={{
           uTime: new THREE.Uniform(0),
           uPerlinTexture: new THREE.Uniform(perlinTexture),
-          uBigWavesElevation: new THREE.Uniform(0.15),
+          uBigWavesElevation: new THREE.Uniform(0.2),
           uBigWavesFrequency: new THREE.Uniform(new THREE.Vector2(0.3, 0.1)),
           uBigWavesSpeed: new THREE.Uniform(0.1),
-          uSmallWavesSpeed: new THREE.Uniform(0.002),
+          uSmallWavesSpeed: new THREE.Uniform(0.001),
         }}
         side={THREE.DoubleSide}
         transparent={true}

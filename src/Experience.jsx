@@ -26,9 +26,7 @@ export default function Experience() {
 
       <Clouds />
 
-      <Suspense fallback={<Placeholder position-y={-1} scale={[10, 3, 10]} />}>
-        <Model />
-      </Suspense>
+      <Model />
     </>
   );
 }
